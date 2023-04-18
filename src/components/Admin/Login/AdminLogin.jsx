@@ -35,7 +35,8 @@ function AdminLogin() {
                         <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>
                             <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
                             <p className="text-white-50 mb-5">Please enter your login and password!</p>
-                            <form onSubmit={handleSubmit}>
+                            <form className='form_container' onSubmit={handleSubmit}>
+                                <h1 className='text' style={{ color: "#df4e4e" }}>Login to your Account</h1>
                                 <input
                                     type='email'
                                     placeholder='Email'
@@ -55,15 +56,12 @@ function AdminLogin() {
                                     className='input'
                                 />
                                 {error && <div className="error_msg">{error}</div>}
-                                <p className="small mb-3 pb-lg-2"><a className="text-white-50" href="#!">Forgot password?</a></p>
-                                <div className="text-center">
-                                    <MDBBtn outline type='submit' className='px-5' color='white' size='lg'>
-                                        {loading && (
-                                            <Spinner className='me-2' animation="border" size="sm" />
-                                        )}
-                                        Login
-                                    </MDBBtn>
-                                </div>
+                                <button type='submit' className='green_btn'>
+                                    {loading && (
+                                        <Spinner className='me-2' animation="border" size="sm" />
+                                    )}
+                                    Login
+                                </button>
                             </form>
                             <div className='d-flex flex-row mt-3 mb-5'>
                                 <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
