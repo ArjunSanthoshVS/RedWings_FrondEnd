@@ -35,33 +35,19 @@ function AdminLogin() {
                         <MDBCardBody className='p-5 d-flex flex-column align-items-center mx-auto w-100'>
                             <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
                             <p className="text-white-50 mb-5">Please enter your login and password!</p>
-                            <form className='form_container' onSubmit={handleSubmit}>
-                                <h1 className='text' style={{ color: "#df4e4e" }}>Login to your Account</h1>
-                                <input
-                                    type='email'
-                                    placeholder='Email'
-                                    name='email'
-                                    onChange={handleChange}
-                                    value={data.email}
-                                    required
-                                    className='input'
-                                />
-                                <input
-                                    type='password'
-                                    placeholder='Password'
-                                    name='password'
-                                    onChange={handleChange}
-                                    required
-                                    value={data.password}
-                                    className='input'
-                                />
+                            <form onSubmit={handleSubmit}>
+                                <MDBInput className='mb-4' labelClass='text-white' label='Email' id='formControlLg' type='email' placeholder='Email' name='email' onChange={handleChange} value={data.email} required size="lg" />
+                                <MDBInput className='mb-3' labelClass='text-white' label='Password' id='formControlLg' type='password' placeholder='Password' name='password' onChange={handleChange} requiredvalue={data.password} size="lg" />
                                 {error && <div className="error_msg">{error}</div>}
-                                <button type='submit' className='green_btn'>
-                                    {loading && (
-                                        <Spinner className='me-2' animation="border" size="sm" />
-                                    )}
-                                    Login
-                                </button>
+                                <p className="small mb-3 pb-lg-2"><a className="text-white-50" href="#!">Forgot password?</a></p>
+                                <div className="text-center">
+                                    <MDBBtn outline type='submit' className='px-5' color='white' size='lg'>
+                                        {loading && (
+                                            <Spinner className='me-2' animation="border" size="sm" />
+                                        )}
+                                        Login
+                                    </MDBBtn>
+                                </div>
                             </form>
                             <div className='d-flex flex-row mt-3 mb-5'>
                                 <MDBBtn tag='a' color='none' className='m-3' style={{ color: 'white' }}>
