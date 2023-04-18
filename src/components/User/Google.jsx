@@ -10,7 +10,7 @@ function Google() {
             const { credential } = credentialResponse;
             const payload = credential ? decodeJwt(credential) : undefined;
             if (payload) {
-                const response = await axios.get('http://localhost:5000/user/googleLogin', {
+                const response = await axios.get('https://redwings-backend.onrender.com/user/googleLogin', {
                     headers: {
                         Authorization: `Bearer ${credential}`
                     }
