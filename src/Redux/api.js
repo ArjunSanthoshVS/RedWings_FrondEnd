@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://redwings-backend.onrender.com/api" })
+const API = axios.create({ baseURL: "https://redwings-backend.onrender.com" })
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem("userToken")) {
