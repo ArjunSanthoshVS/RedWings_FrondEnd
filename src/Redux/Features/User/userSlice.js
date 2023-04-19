@@ -3,6 +3,7 @@ import * as api from "../../api"
 
 export const login = createAsyncThunk("user/login", async ({ data, navigate }, { rejectWithValue }) => {
     try {
+        console.log(data);
         const response = await api.signIn(data)
         console.log(response.data);
         window.location = "/"

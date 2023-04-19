@@ -7,7 +7,7 @@ import Contacts from '../../../Pages/User/Chat/Contacts';
 import Welcome from '../../../Pages/User/Chat/Welcome';
 import ChatContainer from '../../../Pages/User/Chat/ChatContainer';
 import { io } from 'socket.io-client'
-const socket = io("https://redwings-backend.onrender.com")
+const socket = io("http://localhost:5000")
 
 function Chat() {
     const dispatch = useDispatch()
@@ -47,7 +47,6 @@ function Chat() {
         </>
     )
 }
-
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
@@ -57,6 +56,7 @@ const Container = styled.div`
   gap: 1rem;
   align-items: center;
   background-color: lightblue;
+  
   .container {
     padding:0;
     height: 85vh;
@@ -64,6 +64,13 @@ const Container = styled.div`
     background-color: #e3e3e3;
     display: grid;
     grid-template-columns: 25% 75%;
+
+    @media screen and (max-width: 720px) {
+      grid-template-columns: 1fr;
+      height: 100%;
+      width: 100%;
+    }
+
     @media screen and (min-width: 720px) and (max-width: 1080px) {
       grid-template-columns: 35% 65%;
     }
