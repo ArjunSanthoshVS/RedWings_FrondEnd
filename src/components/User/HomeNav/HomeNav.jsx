@@ -165,7 +165,7 @@ function HomeNav() {
                                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                                         <ListItemText primary={page} onClick={() => {
                                             let pageText = page.toLowerCase()
-                                            pageText === "donate" ? navigate('/donor') : navigate('/receiver')
+                                            pageText === "donate" ? handleDonor() : handleReceiver()
                                         }} />
                                     </MenuItem>
                                 ))}
