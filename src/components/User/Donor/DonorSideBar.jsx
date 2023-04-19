@@ -18,6 +18,8 @@ import Doantion from '@mui/icons-material/VolunteerActivismOutlined';
 import HistoryIcon from '@mui/icons-material/History';
 import Branch from '@mui/icons-material/Business';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+import GroupIcon from '@mui/icons-material/Group';
+import ChatIcon from '@mui/icons-material/Chat';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
@@ -65,9 +67,9 @@ function DonorSideBar(props) {
                     { name: 'Donate Blood', icon: <Doantion /> },
                     { name: 'Donation History', icon: <HistoryIcon /> },
                     { name: 'Available Branches', icon: <Branch /> },
-                    { name: 'Patients', icon: <Branch /> },
+                    { name: 'Patients', icon: <GroupIcon /> },
                     { name: 'Other Donations', icon: < CurrencyRupeeIcon /> },
-                    { name: 'Chats', icon: < CurrencyRupeeIcon /> }
+                    { name: 'Chats', icon: < ChatIcon /> }
                 ].map((text, index) => (
                     <ListItem key={text.name} disablePadding>
                         <ListItemButton>

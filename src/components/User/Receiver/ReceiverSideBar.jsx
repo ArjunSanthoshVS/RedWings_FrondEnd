@@ -17,6 +17,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import Doantion from '@mui/icons-material/VolunteerActivismOutlined';
 import HistoryIcon from '@mui/icons-material/History';
 import Branch from '@mui/icons-material/Business';
+import ChatIcon from '@mui/icons-material/Chat';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -65,7 +66,7 @@ function ReceiverSideBar(props) {
                     { name: 'Transfusion History', icon: <HistoryIcon /> },
                     { name: 'Available Branches', icon: <Branch /> },
                     { name: 'Other Donations', icon: < CurrencyRupeeIcon /> },
-                    { name: 'Chat', icon: <Branch /> },
+                    { name: 'Chat', icon: <ChatIcon /> },
                 ].map((text, index) => (
                     <ListItem key={text.name} disablePadding>
                         <ListItemButton>
