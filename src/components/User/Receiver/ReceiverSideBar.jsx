@@ -31,7 +31,7 @@ function ReceiverSideBar(props) {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { user } = useSelector((state) => ({ ...state?.user?.user }))
-    const { window } = props;
+    const { screen } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const handleOpenUserMenu = (event) => {
@@ -105,7 +105,7 @@ function ReceiverSideBar(props) {
             }
         });
     }
-    const container = window !== undefined ? () => window().document.body : undefined;
+    const container = screen !== undefined ? () => screen().document.body : undefined;
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -228,7 +228,7 @@ ReceiverSideBar.propTypes = {
      * Injected by the documentation to work in an iframe.
      * You won't need it on your project.
      */
-    window: PropTypes.func,
+    screen: PropTypes.func,
 };
 
 export default ReceiverSideBar;
