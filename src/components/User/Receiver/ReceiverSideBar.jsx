@@ -17,7 +17,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import Doantion from '@mui/icons-material/VolunteerActivismOutlined';
 import HistoryIcon from '@mui/icons-material/History';
 import Branch from '@mui/icons-material/Business';
-import ChatIcon from '@mui/icons-material/Chat';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -31,7 +30,7 @@ function ReceiverSideBar(props) {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { user } = useSelector((state) => ({ ...state?.user?.user }))
-    const { screen } = props;
+    const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const handleOpenUserMenu = (event) => {
@@ -66,7 +65,7 @@ function ReceiverSideBar(props) {
                     { name: 'Transfusion History', icon: <HistoryIcon /> },
                     { name: 'Available Branches', icon: <Branch /> },
                     { name: 'Other Donations', icon: < CurrencyRupeeIcon /> },
-                    { name: 'Chat', icon: <ChatIcon /> },
+                    { name: 'Chat', icon: <Branch /> },
                 ].map((text, index) => (
                     <ListItem key={text.name} disablePadding>
                         <ListItemButton>
@@ -105,7 +104,7 @@ function ReceiverSideBar(props) {
             }
         });
     }
-    const container = screen !== undefined ? () => screen().document.body : undefined;
+    const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -228,7 +227,7 @@ ReceiverSideBar.propTypes = {
      * Injected by the documentation to work in an iframe.
      * You won't need it on your project.
      */
-    screen: PropTypes.func,
+    window: PropTypes.func,
 };
 
 export default ReceiverSideBar;

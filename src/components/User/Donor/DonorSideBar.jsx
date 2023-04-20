@@ -18,8 +18,6 @@ import Doantion from '@mui/icons-material/VolunteerActivismOutlined';
 import HistoryIcon from '@mui/icons-material/History';
 import Branch from '@mui/icons-material/Business';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import GroupIcon from '@mui/icons-material/Group';
-import ChatIcon from '@mui/icons-material/Chat';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,7 +30,7 @@ function DonorSideBar(props) {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { user } = useSelector((state) => ({ ...state?.user?.user }))
-    const { screen } = props;
+    const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const handleOpenUserMenu = (event) => {
@@ -67,9 +65,9 @@ function DonorSideBar(props) {
                     { name: 'Donate Blood', icon: <Doantion /> },
                     { name: 'Donation History', icon: <HistoryIcon /> },
                     { name: 'Available Branches', icon: <Branch /> },
-                    { name: 'Patients', icon: <GroupIcon /> },
+                    { name: 'Patients', icon: <Branch /> },
                     { name: 'Other Donations', icon: < CurrencyRupeeIcon /> },
-                    { name: 'Chats', icon: < ChatIcon /> }
+                    { name: 'Chats', icon: < CurrencyRupeeIcon /> }
                 ].map((text, index) => (
                     <ListItem key={text.name} disablePadding>
                         <ListItemButton>
@@ -177,7 +175,7 @@ function DonorSideBar(props) {
             }
         });
     }
-    const container = screen !== undefined ? () => screen().document.body : undefined;
+    const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -299,7 +297,7 @@ DonorSideBar.propTypes = {
      * Injected by the documentation to work in an iframe.
      * You won't need it on your project.
      */
-    screen: PropTypes.func,
+    window: PropTypes.func,
 };
 
 export default DonorSideBar;

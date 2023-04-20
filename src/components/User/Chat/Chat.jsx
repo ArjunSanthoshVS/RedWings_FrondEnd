@@ -64,15 +64,13 @@ const Container = styled.div`
     background-color: #e3e3e3;
     display: grid;
     grid-template-columns: 25% 75%;
+  }
 
-    @media screen and (max-width: 720px) {
-      grid-template-columns: 1fr;
+  @media only screen and (max-width: 768px) {
+    .container {
       height: 100%;
       width: 100%;
-    }
-
-    @media screen and (min-width: 720px) and (max-width: 1080px) {
-      grid-template-columns: 35% 65%;
+      grid-template-columns: 1fr;
     }
   }
 `;
