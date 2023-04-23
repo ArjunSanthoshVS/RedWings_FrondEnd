@@ -11,7 +11,7 @@ function PaymentButton({ amount }) {
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
         const date = current.toLocaleDateString('en-US', options);
         console.log(date);
-        axios.post('http://localhost:5000/stripe/donate_money', {
+        axios.post('https://redwings-backend.onrender.com/stripe/donate_money', {
             amount,
             userId: user._id,
             userName: fullName,
