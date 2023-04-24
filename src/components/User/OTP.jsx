@@ -9,8 +9,9 @@ import { BsFillShieldLockFill, BsTelephoneFill } from "react-icons/bs";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login, otpLogin } from '../../Redux/Features/User/userSlice';
+import {  otpLogin } from '../../Redux/Features/User/userSlice';
 import { MDBBtn, MDBCard, MDBCardBody } from 'mdb-react-ui-kit';
+import axios from 'axios';
 
 function OTP() {
     const [otp, setOtp] = useState("");
@@ -36,7 +37,7 @@ function OTP() {
         }
     }
 
-    function onSignup() {
+    const onSignup = async () => {
         setLoading(true);
         onCaptchVerify();
 
@@ -44,20 +45,23 @@ function OTP() {
 
         const formatPh = "+" + ph;
 
-        signInWithPhoneNumber(auth, formatPh, appVerifier)
-            .then((confirmationResult) => {
-                window.confirmationResult = confirmationResult;
-                console.log(confirmationResult);
-                // const user=await dispatch(userWithPH())
-                setLoading(false);
-                setShowOTP(true);
-                toast.success("OTP sended successfully!");
-            })
-            .catch((error) => {
-                console.log(error);
-                setErr(error.message)
-                setLoading(false);
-            });
+        try {
+            await axios.get("https://redwings-backend.onrender.com/user/isPh", { params: { mobile: formatPh } })
+            signInWithPhoneNumber(auth, formatPh, appVerifier)
+                .then((confirmationResult) => {
+                    window.confirmationResult = confirmationResult;
+                    console.log(confirmationResult);
+                    setLoading(false);
+                    setShowOTP(true);
+                    toast.success("OTP sended successfully!");
+                })
+                .catch((error) => {
+                    toast.error(error.message)
+                    setLoading(false);
+                });
+        } catch (error) {
+            toast.error("User Not Found..!")
+        }
     }
 
     function onOTPVerify() {
