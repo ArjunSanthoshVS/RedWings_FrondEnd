@@ -56,11 +56,11 @@ function OTP() {
                     toast.success("OTP sended successfully!");
                 })
                 .catch((error) => {
-                    toast.error(error.message)
                     setLoading(false);
                 });
         } catch (error) {
-            toast.error("User Not Found..!")
+            toast.error("Check your mobile number..!")
+            setLoading(false)
         }
     }
 
