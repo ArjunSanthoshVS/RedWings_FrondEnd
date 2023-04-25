@@ -56,6 +56,7 @@ function OTP() {
                     toast.success("OTP sended successfully!");
                 })
                 .catch((error) => {
+                    console.log(error);
                     toast.error("some error occur..!")
                     setLoading(false);
                 });
