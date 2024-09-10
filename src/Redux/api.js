@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://redwings-backend.onrender.com" })
+const API = axios.create({ baseURL: process.env.REACT_APP_NODE_APP_BASE_URL });
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem("userToken")) {
@@ -13,7 +13,7 @@ API.interceptors.request.use((req) => {
 
 //user
 export const signIn = (data) => API.post("/user/login", data)
-export const otpLogin = (data) => API.post("/user/otpLogin",data)
+export const otpLogin = (data) => API.post("/user/otpLogin", data)
 export const signUp = (data) => API.post("/user/signup", data)
 export const profile = (data) => API.put("/user/profile", data)
 
@@ -71,6 +71,6 @@ export const fullPaymentDetails = () => API.get("/stripe/fullPaymentDetails");
 
 
 //chat
-export const allContacts=(id)=>API.get("/chat/allContacts?id="+id)
-export const addMessage=(data)=>API.post("/chat/addMessage",data)
-export const getAllMessage=(data)=>API.post("/chat/getAllMessage",data)
+export const allContacts = (id) => API.get("/chat/allContacts?id=" + id)
+export const addMessage = (data) => API.post("/chat/addMessage", data)
+export const getAllMessage = (data) => API.post("/chat/getAllMessage", data)

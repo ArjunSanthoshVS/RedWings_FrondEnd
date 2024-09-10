@@ -46,7 +46,7 @@ function OTP() {
         const formatPh = "+" + ph;
 
         try {
-            await axios.get("https://redwings-backend.onrender.com/user/isPh", { params: { mobile: formatPh } })
+            await axios.get(`${process.env.REACT_APP_NODE_APP_BASE_URL}/user/isPh`, { params: { mobile: formatPh } })
             signInWithPhoneNumber(auth, formatPh, appVerifier)
                 .then((confirmationResult) => {
                     window.confirmationResult = confirmationResult;

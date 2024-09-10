@@ -4,6 +4,7 @@ import ChatInput from './ChatInput';
 import { useDispatch } from 'react-redux';
 import { addMessage, getAllMessage } from '../../../Redux/Features/User/chatSlice';
 import { v4 as uuidv4 } from 'uuid'
+
 function ChatContainer({ currentChat, currentUser, socket }) {
     const dispatch = useDispatch()
     const name = currentChat.firstName + " " + currentChat.lastName

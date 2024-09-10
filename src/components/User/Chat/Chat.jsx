@@ -7,7 +7,7 @@ import Contacts from '../../../Pages/User/Chat/Contacts';
 import Welcome from '../../../Pages/User/Chat/Welcome';
 import ChatContainer from '../../../Pages/User/Chat/ChatContainer';
 import { io } from 'socket.io-client'
-const socket = io("https://redwings-backend.onrender.com")
+const socket = io(process.env.REACT_APP_NODE_APP_BASE_URL)
 
 function Chat() {
     const dispatch = useDispatch()
